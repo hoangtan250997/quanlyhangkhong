@@ -11,11 +11,14 @@ import java.util.List;
 
 @Repository
 public interface MayBayRepository extends JpaRepository<MayBay, Long> {
+    //Name Query
     MayBay findByLoai(String loai);
 
+    //@Query
     @Query("select mb from MayBay mb where mb.tamBay < ?1")
     List<MayBay> underTamBay(int tamBay);
 
+    //Native query
     @Query(value = "SELECT * FROM quanlychuyenbay.may_bay mb WHERE mb.loai LIKE %?1%", nativeQuery = true)
     List<MayBay> likeLoai(String loai);
 }

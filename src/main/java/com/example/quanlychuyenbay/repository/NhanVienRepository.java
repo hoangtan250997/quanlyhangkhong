@@ -10,8 +10,10 @@ import java.util.List;
 
 @Repository
 public interface NhanVienRepository extends JpaRepository<NhanVien, Long> {
-NhanVien findByMaNV(Long manv);
+    //Method Name
+    NhanVien findByMaNV(Long manv);
 
-@Query("select nv from NhanVien nv where nv.ten like %:input")
-List<NhanVien> findByTen(@Param("input") String input);
+    //Named Native Query
+    @Query("select nv from NhanVien nv where nv.ten like %:input")
+    List<NhanVien> findByTen(@Param("input") String input);
 }
