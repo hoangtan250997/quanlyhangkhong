@@ -16,7 +16,7 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @Table(name="may_bay")
 @NamedQuery(name = "MayBay.findByLoai",
-query = "select mb from MayBay mb where mb.loai =?1")
+query = "select mb from MayBay mb where mb.loai = ?1")
 public class MayBay {
     @Id
     private long maMB;
