@@ -16,4 +16,10 @@ private final NhanVienService nhanVienService;
     public ResponseEntity<List<NhanVien>> findAll() {
         return ResponseEntity.ok(nhanVienService.findAll());
     }
+
+    @Override
+    public ResponseEntity<NhanVien> findByMaNV(Long maNV) {
+        return ResponseEntity.ok(nhanVienService.findByMaNV(maNV));
+    }
+
 }

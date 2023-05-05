@@ -14,4 +14,7 @@ public class NhanVienService {
     public List<NhanVien> findAll(){
         return nhanVienRepository.findAll();
     }
+    public NhanVien findByMaNV(Long maNV){
+        return nhanVienRepository.findByMaNV(maNV);
+    }
 }
