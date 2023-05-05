@@ -30,5 +30,10 @@ private final MayBayService mayBayService;
         return ResponseEntity.ok(mayBayService.underTamBay(tamBay));
     }
 
+    @Override
+    public ResponseEntity<List<MayBay>> likeLoai(String loai) {
+        return ResponseEntity.ok(mayBayService.likeLoai(loai));
+    }
+
 
 }

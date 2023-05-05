@@ -21,4 +21,8 @@ public class MayBayService {
     public List<MayBay> underTamBay(int tamBay){
         return mayBayRepository.underTamBay(tamBay);
     }
+
+    public List<MayBay> likeLoai(String loai){
+        return mayBayRepository.likeLoai(loai);
+    }
 }

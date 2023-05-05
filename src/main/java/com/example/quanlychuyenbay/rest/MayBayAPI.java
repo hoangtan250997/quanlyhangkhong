@@ -20,4 +20,7 @@ public interface MayBayAPI {
     ResponseEntity<MayBay> findByLoai(@PathParam("loai") String loai);
     @GetMapping(value = "/tambay")
     ResponseEntity<List<MayBay>> underTamBay(@PathParam("tamBay") int tamBay);
+
+    @GetMapping(value = "/likeloai")
+    ResponseEntity<List<MayBay>> likeLoai(@PathParam("loai") String loai);
 }

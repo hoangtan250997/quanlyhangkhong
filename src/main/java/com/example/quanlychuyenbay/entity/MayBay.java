@@ -20,7 +20,7 @@ query = "select mb from MayBay mb where mb.loai =?1")
 public class MayBay {
     @Id
     private long maMB;
-    private String loai ;
+    private String loai;
     private int tamBay;
 
 }
