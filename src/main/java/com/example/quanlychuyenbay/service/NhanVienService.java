@@ -17,4 +17,8 @@ public class NhanVienService {
     public NhanVien findByMaNV(Long maNV){
         return nhanVienRepository.findByMaNV(maNV);
     }
+
+    public List<NhanVien> findByTen(String input){
+        return nhanVienRepository.findByTen(input);
+    }
 }

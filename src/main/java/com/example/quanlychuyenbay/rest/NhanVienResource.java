@@ -22,4 +22,9 @@ private final NhanVienService nhanVienService;
         return ResponseEntity.ok(nhanVienService.findByMaNV(maNV));
     }
 
+    @Override
+    public ResponseEntity<List<NhanVien>> findByTen(String input) {
+        return ResponseEntity.ok(nhanVienService.findByTen(input));
+    }
+
 }

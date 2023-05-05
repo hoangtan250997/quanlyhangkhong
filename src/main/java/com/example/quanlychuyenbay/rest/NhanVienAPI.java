@@ -2,6 +2,7 @@ package com.example.quanlychuyenbay.rest;
 
 import com.example.quanlychuyenbay.entity.NhanVien;
 import com.example.quanlychuyenbay.repository.NhanVienRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,4 +18,6 @@ public interface NhanVienAPI {
 
     @GetMapping(value = "/{maNV}")
     ResponseEntity<NhanVien> findByMaNV(@PathVariable("maNV") Long maNV);
+    @GetMapping(value = "/ten")
+    ResponseEntity<List<NhanVien>> findByTen(@Param("input") String input);
 }
