@@ -15,7 +15,9 @@ import java.util.List;
 public interface MayBayAPI {
     @GetMapping
     ResponseEntity<List<MayBay>> findAll();
-@GetMapping(value="/loai")
-    ResponseEntity<MayBay> findByLoai(@PathParam("loai") String loai);
 
+    @GetMapping(value = "/loai")
+    ResponseEntity<MayBay> findByLoai(@PathParam("loai") String loai);
+    @GetMapping(value = "/tambay")
+    ResponseEntity<List<MayBay>> underTamBay(@PathParam("tamBay") int tamBay);
 }
