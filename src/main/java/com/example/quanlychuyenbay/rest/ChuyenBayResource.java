@@ -21,4 +21,14 @@ public class ChuyenBayResource implements ChuyenBayAPI{
     public ResponseEntity<List<ChuyenBay>> findByGaDiAndGaDen(String gaDi, String gaDen) {
         return ResponseEntity.ok(chuyenBayService.findByGaDiAndGaDen(gaDi,gaDen));
     }
+
+    @Override
+    public ResponseEntity<List<ChuyenBay>> ChiPhiBetween(int chiPhiMin,int chiPhiMax) {
+        return ResponseEntity.ok(chuyenBayService.ChiPhiBetween(chiPhiMin,chiPhiMax));
+    }
+
+    @Override
+    public ResponseEntity<List<ChuyenBay>> chiphiMin() {
+        return ResponseEntity.ok(chuyenBayService.chiPhiMin());
+    }
 }

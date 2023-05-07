@@ -17,4 +17,12 @@ public class ChuyenBayService {
     public List<ChuyenBay> findAll(){
         return chuyenBayRepository.findAll();
     }
+
+    public List<ChuyenBay> ChiPhiBetween( int chiPhiMin, int chiPhiMax){
+        return chuyenBayRepository.ChiPhiBetween(chiPhiMin,chiPhiMax);
+    }
+
+    public List<ChuyenBay> chiPhiMin(){
+        return chuyenBayRepository.chiphiMin();
+    }
 }

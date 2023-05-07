@@ -20,7 +20,6 @@ public class NhanVienService {
     public List<NhanVien> findByLikeTen(String input){
         return nhanVienRepository.findByLikeTen(input);
     }
-
     public List<NhanVien> underLuong(int luong){
         return nhanVienRepository.underLuong(luong);
     }

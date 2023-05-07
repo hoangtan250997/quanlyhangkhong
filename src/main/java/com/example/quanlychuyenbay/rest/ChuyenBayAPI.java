@@ -17,4 +17,10 @@ public interface ChuyenBayAPI {
 
     @GetMapping(value = "/ga")
     ResponseEntity<List<ChuyenBay>> findByGaDiAndGaDen(@Param("gaDi") String gaDi, @Param("gaDen") String gaDen);
+
+    @GetMapping(value = "/chiPhi")
+    ResponseEntity<List<ChuyenBay>> ChiPhiBetween(@Param("chiPhiMin") int chiPhiMin,@Param("chiPhiMax") int chiPhiMax);
+
+    @GetMapping(value = "/chiPhiMin")
+    ResponseEntity<List<ChuyenBay>> chiphiMin();
 }

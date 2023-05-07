@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import java.time.LocalTime;
 
@@ -14,6 +15,7 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="chuyen_bay")
+@NamedQuery(name="ChuyenBay.ChiPhiBetween",query = "select cb from ChuyenBay cb where cb.chiPhi between :chiPhiMin and :chiPhiMax")
 public class ChuyenBay {
     @Id
     private String maCB;
