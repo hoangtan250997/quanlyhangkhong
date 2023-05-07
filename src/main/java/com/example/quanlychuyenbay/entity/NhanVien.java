@@ -11,8 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="nhan_vien")
-@NamedQuery(name="NhanVien.findByMaNV",
-query = "select n from NhanVien n where n.maNV=?1")
+
 public class NhanVien {
     @Id
     private Long maNV;

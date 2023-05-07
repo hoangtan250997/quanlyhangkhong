@@ -17,8 +17,11 @@ public class NhanVienService {
     public NhanVien findByMaNV(Long maNV){
         return nhanVienRepository.findByMaNV(maNV);
     }
+    public List<NhanVien> findByLikeTen(String input){
+        return nhanVienRepository.findByLikeTen(input);
+    }
 
-    public List<NhanVien> findByTen(String input){
-        return nhanVienRepository.findByTen(input);
+    public List<NhanVien> underLuong(int luong){
+        return nhanVienRepository.underLuong(luong);
     }
 }

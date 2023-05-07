@@ -18,6 +18,11 @@ public interface NhanVienAPI {
 
     @GetMapping(value = "/{maNV}")
     ResponseEntity<NhanVien> findByMaNV(@PathVariable("maNV") Long maNV);
+
     @GetMapping(value = "/ten")
-    ResponseEntity<List<NhanVien>> findByTen(@Param("input") String input);
+    ResponseEntity<List<NhanVien>> findByLikeTen(@Param("input") String input);
+
+    @GetMapping(value = "/luong")
+    ResponseEntity<List<NhanVien>> underLuong(@Param("luong") int luong);
+
 }

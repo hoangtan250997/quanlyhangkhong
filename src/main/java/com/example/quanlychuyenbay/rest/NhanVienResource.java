@@ -23,8 +23,14 @@ private final NhanVienService nhanVienService;
     }
 
     @Override
-    public ResponseEntity<List<NhanVien>> findByTen(String input) {
-        return ResponseEntity.ok(nhanVienService.findByTen(input));
+    public ResponseEntity<List<NhanVien>> findByLikeTen(String input) {
+        return ResponseEntity.ok(nhanVienService.findByLikeTen(input));
     }
+
+    @Override
+    public ResponseEntity<List<NhanVien>> underLuong(int luong) {
+        return ResponseEntity.ok(nhanVienService.underLuong(luong));
+    }
+
 
 }
