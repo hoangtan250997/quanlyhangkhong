@@ -2,6 +2,7 @@ package com.example.quanlychuyenbay.rest;
 
 import com.example.quanlychuyenbay.entity.ChungNhan;
 import com.example.quanlychuyenbay.entity.MayBay;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,5 +18,8 @@ public interface ChungNhanAPI {
 
     @GetMapping(value = "/{id}")
     ResponseEntity<ChungNhan> findById(@PathVariable("id") Long id);
+
+    @GetMapping(value ="/find")
+    ResponseEntity<List<ChungNhan>> findByTenNV(@Param("ten") String ten);
 
 }

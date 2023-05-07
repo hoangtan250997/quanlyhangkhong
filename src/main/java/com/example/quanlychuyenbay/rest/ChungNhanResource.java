@@ -26,4 +26,9 @@ private final ChungNhanService chungNhanService;
         return ResponseEntity.ok(chungNhanService.findById(id));
     }
 
+    @Override
+    public ResponseEntity<List<ChungNhan>> findByTenNV(String ten) {
+        return ResponseEntity.ok(chungNhanService.findByTenNV(ten));
+    }
+
 }

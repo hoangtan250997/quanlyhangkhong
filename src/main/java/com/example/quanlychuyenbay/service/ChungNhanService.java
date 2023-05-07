@@ -19,4 +19,8 @@ public class ChungNhanService {
     public ChungNhan findById(Long id){
         return chungNhanRepository.findById(id).get();
     }
+
+    public List<ChungNhan> findByTenNV(String ten){
+        return chungNhanRepository.findByTenNV(ten);
+    }
 }
