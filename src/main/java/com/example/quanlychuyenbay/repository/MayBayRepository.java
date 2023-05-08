@@ -21,4 +21,5 @@ public interface MayBayRepository extends JpaRepository<MayBay, Long> {
     //Native query
     @Query(value = "SELECT * FROM quanlychuyenbay.may_bay mb WHERE mb.loai LIKE %?1%", nativeQuery = true)
     List<MayBay> likeLoai(String loai);
+
 }

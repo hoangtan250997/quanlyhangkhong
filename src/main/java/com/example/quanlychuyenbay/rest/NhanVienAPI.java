@@ -25,4 +25,6 @@ public interface NhanVienAPI {
     @GetMapping(value = "/luong")
     ResponseEntity<List<NhanVien>> underLuong(@Param("luong") int luong);
 
+    @GetMapping(value = "/max")
+    ResponseEntity<List<NhanVien>> maxChungChi();
 }

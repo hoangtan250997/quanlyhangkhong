@@ -23,4 +23,7 @@ public class NhanVienService {
     public List<NhanVien> underLuong(int luong){
         return nhanVienRepository.underLuong(luong);
     }
+    public List<NhanVien> maxChungChi(){
+        return nhanVienRepository.maxChungChi();
+    }
 }

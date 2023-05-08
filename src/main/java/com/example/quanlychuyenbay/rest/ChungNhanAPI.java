@@ -1,7 +1,8 @@
 package com.example.quanlychuyenbay.rest;
 
 import com.example.quanlychuyenbay.entity.ChungNhan;
-import com.example.quanlychuyenbay.entity.MayBay;
+import com.example.quanlychuyenbay.entity.NhanVien;
+import com.example.quanlychuyenbay.service.NhanVienDTO;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,5 +22,10 @@ public interface ChungNhanAPI {
 
     @GetMapping(value ="/find")
     ResponseEntity<List<ChungNhan>> findByTenNV(@Param("ten") String ten);
+
+    @GetMapping(value = "/maMB")
+    ResponseEntity<List<NhanVien>> showNhanVienbyMaMB(@Param("maMB")Long maMB);
+    @GetMapping(value = "/max")
+    ResponseEntity<List<NhanVien>> maxChungChi();
 
 }

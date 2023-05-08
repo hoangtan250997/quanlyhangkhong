@@ -1,9 +1,9 @@
 package com.example.quanlychuyenbay.rest;
 
 import com.example.quanlychuyenbay.entity.ChungNhan;
-import com.example.quanlychuyenbay.entity.MayBay;
+import com.example.quanlychuyenbay.entity.NhanVien;
 import com.example.quanlychuyenbay.service.ChungNhanService;
-import com.example.quanlychuyenbay.service.MayBayService;
+import com.example.quanlychuyenbay.service.NhanVienDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,6 +29,16 @@ private final ChungNhanService chungNhanService;
     @Override
     public ResponseEntity<List<ChungNhan>> findByTenNV(String ten) {
         return ResponseEntity.ok(chungNhanService.findByTenNV(ten));
+    }
+
+    @Override
+    public ResponseEntity<List<NhanVien>> showNhanVienbyMaMB(Long maMB) {
+        return ResponseEntity.ok(chungNhanService.showNhanVienbyMaMB(maMB));
+    }
+
+    @Override
+    public ResponseEntity<List<NhanVien>> maxChungChi() {
+        return ResponseEntity.ok(chungNhanService.maxChungChi());
     }
 
 }

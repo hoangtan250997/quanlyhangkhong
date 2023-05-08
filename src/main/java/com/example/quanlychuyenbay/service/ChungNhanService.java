@@ -1,9 +1,8 @@
 package com.example.quanlychuyenbay.service;
 
 import com.example.quanlychuyenbay.entity.ChungNhan;
-import com.example.quanlychuyenbay.entity.MayBay;
+import com.example.quanlychuyenbay.entity.NhanVien;
 import com.example.quanlychuyenbay.repository.ChungNhanRepository;
-import com.example.quanlychuyenbay.repository.MayBayRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,5 +21,13 @@ public class ChungNhanService {
 
     public List<ChungNhan> findByTenNV(String ten){
         return chungNhanRepository.findByTenNV(ten);
+    }
+
+    public List<NhanVien> showNhanVienbyMaMB(Long maMB){
+        return chungNhanRepository.showNhanVienbyMaMB(maMB);
+    }
+
+  public List<NhanVien> maxChungChi(){
+        return chungNhanRepository.maxChungChi();
     }
 }

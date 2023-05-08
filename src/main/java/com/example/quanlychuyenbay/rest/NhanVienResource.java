@@ -32,5 +32,10 @@ private final NhanVienService nhanVienService;
         return ResponseEntity.ok(nhanVienService.underLuong(luong));
     }
 
+    @Override
+    public ResponseEntity<List<NhanVien>> maxChungChi() {
+        return ResponseEntity.ok(nhanVienService.maxChungChi());
+    }
+
 
 }

@@ -21,4 +21,8 @@ public interface NhanVienRepository extends JpaRepository<NhanVien, Long> {
     @Query(value = "select * from quanlychuyenbay.nhan_vien where luong < ?1", nativeQuery = true)
     List<NhanVien> underLuong(@Param("luong") int luong);
 
+    @Query(value = "select nv.* from quanlychuyenbay.nhan_vien nv", nativeQuery = true)
+    List<NhanVien> maxChungChi();
+
+
 }
