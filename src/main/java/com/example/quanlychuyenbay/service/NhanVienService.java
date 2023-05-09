@@ -20,10 +20,10 @@ public class NhanVienService {
     public List<NhanVien> findByLikeTen(String input){
         return nhanVienRepository.findByLikeTen(input);
     }
-    public List<NhanVien> underLuong(int luong){
-        return nhanVienRepository.underLuong(luong);
+    public List<NhanVien> findUnderLuong(int luong){
+        return nhanVienRepository.findUnderLuong(luong);
     }
-    public List<NhanVien> maxChungChi(){
-        return nhanVienRepository.maxChungChi();
+    public List<NhanVien> getChungNhanMax(){
+        return nhanVienRepository.getChungNhanMax();
     }
 }

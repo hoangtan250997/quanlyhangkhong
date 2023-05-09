@@ -14,7 +14,7 @@ import java.time.LocalTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="chuyenbay")
+@Table(name="chuyen_bay")
 @NamedQuery(name="ChuyenBay.ChiPhiBetween",query = "select cb from ChuyenBay cb where cb.chiPhi between :chiPhiMin and :chiPhiMax")
 public class ChuyenBay {
     @Id

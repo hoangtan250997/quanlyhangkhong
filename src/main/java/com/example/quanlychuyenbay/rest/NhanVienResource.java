@@ -28,13 +28,13 @@ private final NhanVienService nhanVienService;
     }
 
     @Override
-    public ResponseEntity<List<NhanVien>> underLuong(int luong) {
-        return ResponseEntity.ok(nhanVienService.underLuong(luong));
+    public ResponseEntity<List<NhanVien>> findUnderLuong(int luong) {
+        return ResponseEntity.ok(nhanVienService.findUnderLuong(luong));
     }
 
     @Override
-    public ResponseEntity<List<NhanVien>> maxChungChi() {
-        return ResponseEntity.ok(nhanVienService.maxChungChi());
+    public ResponseEntity<List<NhanVien>> getChungNhanMax() {
+        return ResponseEntity.ok(nhanVienService.getChungNhanMax());
     }
 
 

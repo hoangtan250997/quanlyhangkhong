@@ -36,9 +36,5 @@ private final ChungNhanService chungNhanService;
         return ResponseEntity.ok(chungNhanService.showNhanVienbyMaMB(maMB));
     }
 
-    @Override
-    public ResponseEntity<List<NhanVien>> maxChungChi() {
-        return ResponseEntity.ok(chungNhanService.maxChungChi());
-    }
 
 }

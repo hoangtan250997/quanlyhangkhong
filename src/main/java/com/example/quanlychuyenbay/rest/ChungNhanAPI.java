@@ -25,7 +25,6 @@ public interface ChungNhanAPI {
 
     @GetMapping(value = "/maMB")
     ResponseEntity<List<NhanVien>> showNhanVienbyMaMB(@Param("maMB")Long maMB);
-    @GetMapping(value = "/max")
-    ResponseEntity<List<NhanVien>> maxChungChi();
+
 
 }

@@ -23,8 +23,8 @@ public interface NhanVienAPI {
     ResponseEntity<List<NhanVien>> findByLikeTen(@Param("input") String input);
 
     @GetMapping(value = "/luong")
-    ResponseEntity<List<NhanVien>> underLuong(@Param("luong") int luong);
+    ResponseEntity<List<NhanVien>> findUnderLuong(@Param("luong") int luong);
 
-    @GetMapping(value = "/max")
-    ResponseEntity<List<NhanVien>> maxChungChi();
+    @GetMapping(value = "/chungnhanmax")
+    ResponseEntity<List<NhanVien>> getChungNhanMax();
 }

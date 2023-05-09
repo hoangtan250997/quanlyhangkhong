@@ -27,7 +27,5 @@ public class ChungNhanService {
         return chungNhanRepository.showNhanVienbyMaMB(maMB);
     }
 
-  public List<NhanVien> maxChungChi(){
-        return chungNhanRepository.maxChungChi();
-    }
+
 }

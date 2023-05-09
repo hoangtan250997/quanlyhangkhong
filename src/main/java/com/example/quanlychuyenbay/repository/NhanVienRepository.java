@@ -19,10 +19,17 @@ public interface NhanVienRepository extends JpaRepository<NhanVien, Long> {
     List<NhanVien> findByLikeTen(@Param("input") String input);
 
     @Query(value = "select * from quanlychuyenbay.nhan_vien where luong < ?1", nativeQuery = true)
-    List<NhanVien> underLuong(@Param("luong") int luong);
+    List<NhanVien> findUnderLuong(@Param("luong") int luong);
 
-    @Query(value = "select nv.* from quanlychuyenbay.nhan_vien nv", nativeQuery = true)
-    List<NhanVien> maxChungChi();
+    @Query(value = "with tempo as (select count(cn.id) as c\n" +
+            "from quanlychuyenbay.chung_nhan cn\n" +
+            "group by cn.manv)\n" +
+            "select nv.manv, nv.ten, nv.luong \n" +
+            "from quanlychuyenbay.nhan_vien nv, quanlychuyenbay.chung_nhan cn2 \n" +
+            "where nv.manv = cn2.manv \n" +
+            "group by nv.manv, nv.ten, nv.luong \n" +
+            "having count(cn2.id) = (select max(t.c) from tempo t) ", nativeQuery = true)
+    List<NhanVien> getChungNhanMax();
 
 
 }
