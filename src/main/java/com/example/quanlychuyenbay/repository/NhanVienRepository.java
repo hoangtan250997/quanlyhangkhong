@@ -1,6 +1,7 @@
 package com.example.quanlychuyenbay.repository;
 
 import com.example.quanlychuyenbay.entity.NhanVien;
+import com.example.quanlychuyenbay.service.Dto.NhanVienDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -12,13 +13,14 @@ import java.util.List;
 public interface NhanVienRepository extends JpaRepository<NhanVien, Long> {
 
     //Method Name
-    NhanVien findByMaNV(Long manv);
+    NhanVienDto findByMaNV(Long manv);
 
     //Named Native Query
-    @Query("select nv from NhanVien nv where nv.ten like %:input")
-    List<NhanVien> findByLikeTen(@Param("input") String input);
+    @Query("select new com.example.quanlychuyenbay.service.Dto.NhanVienDto(nv.maNV, nv.ten, nv.luong) from NhanVien nv where nv.ten like %:input")
+    List<NhanVienDto> findByLikeTen(@Param("input") String input);
 
-    @Query(value = "select * from quanlychuyenbay.nhan_vien where luong < ?1", nativeQuery = true)
+    //    @Query(value = "select new com.example.quanlychuyenbay.service.Dto.NhanVienDto(nv.maNV, nv.ten, nv.luong) from NhanVien nv where nv.luong < ?1")
+    @Query(value = "select nv.* from quanlychuyenbay.nhan_vien nv where nv.luong < ?1", nativeQuery = true)
     List<NhanVien> findUnderLuong(@Param("luong") int luong);
 
     @Query(value = "with tempo as (select count(cn.id) as c\n" +

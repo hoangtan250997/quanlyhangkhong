@@ -3,6 +3,9 @@ package com.example.quanlychuyenbay.service;
 import com.example.quanlychuyenbay.entity.ChungNhan;
 import com.example.quanlychuyenbay.entity.NhanVien;
 import com.example.quanlychuyenbay.repository.ChungNhanRepository;
+import com.example.quanlychuyenbay.service.Dto.ChungNhanDto;
+import com.example.quanlychuyenbay.service.Dto.NhanVienDto;
+import com.example.quanlychuyenbay.service.mapper.ChungNhanMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,20 +15,22 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ChungNhanService {
     private final ChungNhanRepository chungNhanRepository;
-    public List<ChungNhan> findAll(){
-        return chungNhanRepository.findAll();
+    private final ChungNhanMapper chungNhanMapper;
+    public List<ChungNhanDto> findAll(){
+
+        return chungNhanMapper.toDtos(chungNhanRepository.findAll());
     };
     public ChungNhan findById(Long id){
+
         return chungNhanRepository.findById(id).get();
     }
 
-    public List<ChungNhan> findByTenNV(String ten){
+    public List<ChungNhanDto> findByTenNV(String ten){
         return chungNhanRepository.findByTenNV(ten);
     }
 
-    public List<NhanVien> showNhanVienbyMaMB(Long maMB){
+    public List<NhanVienDto> showNhanVienbyMaMB(Long maMB){
         return chungNhanRepository.showNhanVienbyMaMB(maMB);
     }
-
 
 }

@@ -1,7 +1,7 @@
 package com.example.quanlychuyenbay.rest;
 
 import com.example.quanlychuyenbay.entity.NhanVien;
-import com.example.quanlychuyenbay.repository.NhanVienRepository;
+import com.example.quanlychuyenbay.service.Dto.NhanVienDto;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,17 +14,17 @@ import java.util.List;
 
 public interface NhanVienAPI {
     @GetMapping
-    ResponseEntity<List<NhanVien>> findAll();
+    ResponseEntity<List<NhanVienDto>> getAll();
 
     @GetMapping(value = "/{maNV}")
-    ResponseEntity<NhanVien> findByMaNV(@PathVariable("maNV") Long maNV);
+    ResponseEntity<NhanVienDto> findByMaNV(@PathVariable("maNV") Long maNV);
 
     @GetMapping(value = "/ten")
-    ResponseEntity<List<NhanVien>> findByLikeTen(@Param("input") String input);
+    ResponseEntity<List<NhanVienDto>> findByLikeTen(@Param("input") String input);
 
     @GetMapping(value = "/luong")
-    ResponseEntity<List<NhanVien>> findUnderLuong(@Param("luong") int luong);
+    ResponseEntity<List<NhanVienDto>> findUnderLuong(@Param("luong") int luong);
 
     @GetMapping(value = "/chungnhanmax")
-    ResponseEntity<List<NhanVien>> getChungNhanMax();
+    ResponseEntity<List<NhanVienDto>> getChungNhanMax();
 }
