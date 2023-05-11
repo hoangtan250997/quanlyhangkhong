@@ -1,6 +1,7 @@
 package com.example.quanlychuyenbay.rest;
 
 import com.example.quanlychuyenbay.entity.NhanVien;
+import com.example.quanlychuyenbay.service.Dto.ChungNhanStatisticsDto;
 import com.example.quanlychuyenbay.service.Dto.NhanVienDto;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
@@ -27,5 +28,8 @@ public interface NhanVienAPI {
 
     @GetMapping(value = "/chungnhanmax")
     ResponseEntity<List<NhanVienDto>> getChungNhanMax();
+
+    @GetMapping("/statistics")
+    public ResponseEntity<List<ChungNhanStatisticsDto>> countChungNhanOfNhanVienJPQL();
 
 }

@@ -1,6 +1,7 @@
 package com.example.quanlychuyenbay.repository;
 
 import com.example.quanlychuyenbay.entity.NhanVien;
+import com.example.quanlychuyenbay.service.Dto.ChungNhanStatisticsDto;
 import com.example.quanlychuyenbay.service.Dto.NhanVienDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -32,7 +33,12 @@ public interface NhanVienRepository extends JpaRepository<NhanVien, Long> {
             "group by nv.manv, nv.ten, nv.luong \n" +
             "having count(cn2.id) = (select max(t.c) from tempo t) ", nativeQuery = true)
     List<NhanVien> getChungNhanMax();
+
     @Query("select new com.example.quanlychuyenbay.service.Dto.NhanVienDto(cn.nhanVien.maNV, cn.nhanVien.ten, cn.nhanVien.luong) from ChungNhan cn where cn.mayBay.maMB = ?1")
     List<NhanVienDto> showNhanVienbyMaMB(Long maMB);
-
+    @Query("SELECT com.example.quanlychuyenbay.service.Dto.ChungNhanStatisticsDto(nv.ten, count(cn.id)) " +
+            "FROM NhanVien nv, ChungNhan cn " +
+            "WHERE nv.maNV = cn.nhanVien.maNV "+
+            "GROUP BY nv.ten ORDER BY nv.ten")
+    List<ChungNhanStatisticsDto> countChungNhanOfNhanVienJPAQL();
 }

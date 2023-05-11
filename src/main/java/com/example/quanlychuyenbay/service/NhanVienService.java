@@ -3,6 +3,7 @@ package com.example.quanlychuyenbay.service;
 import com.example.quanlychuyenbay.entity.NhanVien;
 import com.example.quanlychuyenbay.exception.DemoException;
 import com.example.quanlychuyenbay.repository.NhanVienRepository;
+import com.example.quanlychuyenbay.service.Dto.ChungNhanStatisticsDto;
 import com.example.quanlychuyenbay.service.Dto.NhanVienDto;
 import com.example.quanlychuyenbay.service.mapper.NhanVienMapper;
 import lombok.RequiredArgsConstructor;
@@ -35,7 +36,12 @@ public class NhanVienService {
     public List<NhanVienDto> getChungNhanMax() {
         return NhanVienMapper.INSTANCE.toDtos(nhanVienRepository.getChungNhanMax());
     }
+
     public List<NhanVienDto> showNhanVienbyMaMB(Long maMB) {
         return nhanVienRepository.showNhanVienbyMaMB(maMB);
+    }
+
+    public List<ChungNhanStatisticsDto> countChungNhanOfNhanVienJPQL() {
+        return nhanVienRepository.countChungNhanOfNhanVienJPAQL();
     }
 }

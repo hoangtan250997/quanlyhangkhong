@@ -2,6 +2,7 @@ package com.example.quanlychuyenbay.rest;
 
 import com.example.quanlychuyenbay.entity.NhanVien;
 import com.example.quanlychuyenbay.exception.DemoException;
+import com.example.quanlychuyenbay.service.Dto.ChungNhanStatisticsDto;
 import com.example.quanlychuyenbay.service.Dto.NhanVienDto;
 import com.example.quanlychuyenbay.service.NhanVienService;
 import com.example.quanlychuyenbay.service.mapper.NhanVienMapper;
@@ -39,6 +40,11 @@ private final NhanVienService nhanVienService;
     @Override
     public ResponseEntity<List<NhanVienDto  >> getChungNhanMax() {
         return ResponseEntity.ok(nhanVienService.getChungNhanMax());
+    }
+
+    @Override
+    public ResponseEntity<List<ChungNhanStatisticsDto>> countChungNhanOfNhanVienJPQL() {
+        return ResponseEntity.ok(nhanVienService.countChungNhanOfNhanVienJPQL());
     }
 
 
