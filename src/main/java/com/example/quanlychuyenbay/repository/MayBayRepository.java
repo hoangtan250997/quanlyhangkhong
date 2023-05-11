@@ -2,6 +2,7 @@ package com.example.quanlychuyenbay.repository;
 
 import com.example.quanlychuyenbay.entity.MayBay;
 import com.example.quanlychuyenbay.entity.NhanVien;
+import com.example.quanlychuyenbay.service.Dto.MayBayDto;
 import com.example.quanlychuyenbay.service.MayBayService;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -15,8 +16,8 @@ public interface MayBayRepository extends JpaRepository<MayBay, Long> {
     MayBay findByLoai(String loai);
 
     //@Query
-    @Query("select mb from MayBay mb where mb.tamBay < ?1")
-    List<MayBay> underTamBay(int tamBay);
+    @Query("select new com.example.quanlychuyenbay.service.Dto.MayBayDto(mb.maMB, mb.loai, mb.tamBay) from MayBay mb where mb.tamBay < ?1")
+    List<MayBayDto> underTamBay(int tamBay);
 
     //Native query
     @Query(value = "SELECT * FROM quanlychuyenbay.may_bay mb WHERE mb.loai LIKE %?1%", nativeQuery = true)

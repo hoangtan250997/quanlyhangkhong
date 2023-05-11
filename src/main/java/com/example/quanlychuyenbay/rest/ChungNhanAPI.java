@@ -1,6 +1,6 @@
 package com.example.quanlychuyenbay.rest;
 
-import com.example.quanlychuyenbay.entity.ChungNhan;
+
 import com.example.quanlychuyenbay.entity.NhanVien;
 import com.example.quanlychuyenbay.service.Dto.ChungNhanDto;
 import com.example.quanlychuyenbay.service.Dto.NhanVienDto;
@@ -9,9 +9,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+
+import javax.validation.constraints.NotBlank;
 import java.util.List;
-
 @RequestMapping(value = "/api/chungnhan")
 
 public interface ChungNhanAPI {
@@ -19,10 +21,10 @@ public interface ChungNhanAPI {
     ResponseEntity<List<ChungNhanDto>> findAll();
 
     @GetMapping(value = "/{id}")
-    ResponseEntity<ChungNhan> findById(@PathVariable("id") Long id);
+    ResponseEntity<ChungNhanDto> findById(@PathVariable("id") Long id);
 
     @GetMapping(value ="/find")
-    ResponseEntity<List<ChungNhanDto>> findByTenNV(@Param("ten") String ten);
+    ResponseEntity<List<ChungNhanDto>> findByTenNV(@RequestParam("ten") @NotBlank String ten);
 
     @GetMapping(value = "/maMB")
     ResponseEntity<List<NhanVienDto>> showNhanVienbyMaMB(@Param("maMB")Long maMB);

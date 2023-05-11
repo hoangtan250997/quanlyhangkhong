@@ -1,8 +1,10 @@
 package com.example.quanlychuyenbay.rest;
 
 import com.example.quanlychuyenbay.entity.NhanVien;
+import com.example.quanlychuyenbay.exception.DemoException;
 import com.example.quanlychuyenbay.service.Dto.NhanVienDto;
 import com.example.quanlychuyenbay.service.NhanVienService;
+import com.example.quanlychuyenbay.service.mapper.NhanVienMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,6 +27,7 @@ private final NhanVienService nhanVienService;
 
     @Override
     public ResponseEntity<List<NhanVienDto>> findByLikeTen(String input) {
+        if (input.isBlank()) throw DemoException.badRequest("TenEmpty","Ten is null or empty");
         return ResponseEntity.ok(nhanVienService.findByLikeTen(input));
     }
 
@@ -34,7 +37,7 @@ private final NhanVienService nhanVienService;
     }
 
     @Override
-    public ResponseEntity<List<NhanVienDto>> getChungNhanMax() {
+    public ResponseEntity<List<NhanVienDto  >> getChungNhanMax() {
         return ResponseEntity.ok(nhanVienService.getChungNhanMax());
     }
 

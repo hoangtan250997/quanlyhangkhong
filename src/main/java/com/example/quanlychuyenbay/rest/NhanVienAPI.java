@@ -27,4 +27,5 @@ public interface NhanVienAPI {
 
     @GetMapping(value = "/chungnhanmax")
     ResponseEntity<List<NhanVienDto>> getChungNhanMax();
+
 }

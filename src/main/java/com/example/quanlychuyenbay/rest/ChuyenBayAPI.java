@@ -1,6 +1,7 @@
 package com.example.quanlychuyenbay.rest;
 
 import com.example.quanlychuyenbay.entity.ChuyenBay;
+import com.example.quanlychuyenbay.service.Dto.ChuyenBayDto;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,14 +14,14 @@ import java.util.List;
 
 public interface ChuyenBayAPI {
     @GetMapping
-    ResponseEntity<List<ChuyenBay>> findAll();
+    ResponseEntity<List<ChuyenBayDto>> findAll();
 
     @GetMapping(value = "/ga")
-    ResponseEntity<List<ChuyenBay>> findByGaDiAndGaDen(@Param("gaDi") String gaDi, @Param("gaDen") String gaDen);
+    ResponseEntity<List<ChuyenBayDto>> findByGaDiAndGaDen(@Param("gaDi") String gaDi, @Param("gaDen") String gaDen);
 
     @GetMapping(value = "/chiPhi")
-    ResponseEntity<List<ChuyenBay>> ChiPhiBetween(@Param("chiPhiMin") int chiPhiMin,@Param("chiPhiMax") int chiPhiMax);
+    ResponseEntity<List<ChuyenBayDto>> ChiPhiBetween(@Param("chiPhiMin") int chiPhiMin,@Param("chiPhiMax") int chiPhiMax);
 
     @GetMapping(value = "/chiPhiMin")
-    ResponseEntity<List<ChuyenBay>> chiphiMin();
+    ResponseEntity<List<ChuyenBayDto>> chiphiMin();
 }
