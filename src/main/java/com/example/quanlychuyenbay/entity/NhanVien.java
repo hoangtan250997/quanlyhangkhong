@@ -23,9 +23,10 @@ import javax.persistence.*;
 @NamedNativeQuery(
         name = NhanVien.COUNT_CHUNGNHAN_OF_NHANVIEN,
         query = "SELECT nv.ten as tenNhanVien, count(cn.id) as numberOfChungNhan " +
-                "FROM NhanVien nv, ChungNhan cn " +
-                "WHERE nv.maNV = cn.nhanVien.maNV "+
-                "GROUP BY nv.ten ORDER BY nv.ten",
+                "FROM  quanlychuyenbay.nhan_vien nv, quanlychuyenbay.chung_nhan cn " +
+                "where nv.maNV = cn.maNV "+
+                "GROUP BY nv.ten " +
+                "ORDER BY count(cn.id) desc",
         resultSetMapping = "ChungNhanStatistics")
 public class NhanVien {
     public static final String COUNT_CHUNGNHAN_OF_NHANVIEN = "NhanVien.countChungNhanOfNhanVien";

@@ -35,7 +35,6 @@ public class ChungNhanService {
                 check=false;
             }
         }
-
         if (!check) throw DemoException.badRequest("WrongFormat","ten is wrong format!");
         return chungNhanRepository.findByTenNV(ten);
     }

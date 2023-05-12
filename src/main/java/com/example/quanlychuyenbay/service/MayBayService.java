@@ -21,19 +21,18 @@ public class MayBayService {
         return MayBayMapper.INSTANCE.toDtos(mayBayRepository.findAll());
     }
 
-    ;
-
     public MayBayDto findByLoai(String loai) {
-        if (mayBayRepository.findByLoai(loai) == null) throw new DemoException().MaybayNotFound();
+        if (mayBayRepository.findByLoai(loai) == null) throw DemoException.MaybayNotFound();
         return MayBayMapper.INSTANCE.toDto(mayBayRepository.findByLoai(loai));
     }
 
     public List<MayBayDto> underTamBay(int tamBay) {
+        if (tamBay < 0) throw DemoException.badRequest("WrongFormat", "Tam Bay cannot negative");
         return mayBayRepository.underTamBay(tamBay);
     }
 
     public List<MayBayDto> likeLoai(String loai) {
-
+        if (mayBayRepository.likeLoai(loai).size() == 0) throw DemoException.MaybayNotFound();
         return MayBayMapper.INSTANCE.toDtos(mayBayRepository.likeLoai(loai));
     }
 }

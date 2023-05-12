@@ -30,6 +30,7 @@ public class NhanVienService {
     }
 
     public List<NhanVienDto> findUnderLuong(int luong) {
+        if (luong<0) throw DemoException.badRequest("WrongFormat","Luong cannot be negative");
         return NhanVienMapper.INSTANCE.toDtos(nhanVienRepository.findUnderLuong(luong));
     }
 
@@ -43,5 +44,8 @@ public class NhanVienService {
 
     public List<ChungNhanStatisticsDto> countChungNhanOfNhanVienJPQL() {
         return nhanVienRepository.countChungNhanOfNhanVienJPAQL();
+    }
+    public List<ChungNhanStatisticsDto> countChungNhanOfNhanVien(){
+        return nhanVienRepository.countChungNhanOfNhanVien();
     }
 }

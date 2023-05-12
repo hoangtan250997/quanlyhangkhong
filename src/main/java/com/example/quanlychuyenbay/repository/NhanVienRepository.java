@@ -36,9 +36,14 @@ public interface NhanVienRepository extends JpaRepository<NhanVien, Long> {
 
     @Query("select new com.example.quanlychuyenbay.service.Dto.NhanVienDto(cn.nhanVien.maNV, cn.nhanVien.ten, cn.nhanVien.luong) from ChungNhan cn where cn.mayBay.maMB = ?1")
     List<NhanVienDto> showNhanVienbyMaMB(Long maMB);
-    @Query("SELECT com.example.quanlychuyenbay.service.Dto.ChungNhanStatisticsDto(nv.ten, count(cn.id)) " +
+
+    @Query("SELECT new com.example.quanlychuyenbay.service.Dto.ChungNhanStatisticsDto(nv.ten, count(cn.id)) " +
             "FROM NhanVien nv, ChungNhan cn " +
-            "WHERE nv.maNV = cn.nhanVien.maNV "+
+            "WHERE nv.maNV = cn.nhanVien.maNV " +
             "GROUP BY nv.ten ORDER BY nv.ten")
     List<ChungNhanStatisticsDto> countChungNhanOfNhanVienJPAQL();
+
+    @Query(nativeQuery = true)
+    List<ChungNhanStatisticsDto> countChungNhanOfNhanVien();
+
 }

@@ -30,6 +30,8 @@ public interface NhanVienAPI {
     ResponseEntity<List<NhanVienDto>> getChungNhanMax();
 
     @GetMapping("/statistics")
-    public ResponseEntity<List<ChungNhanStatisticsDto>> countChungNhanOfNhanVienJPQL();
+     ResponseEntity<List<ChungNhanStatisticsDto>> countChungNhanOfNhanVienJPQL();
 
+    @GetMapping("/statisticsbynamequery")
+     ResponseEntity<List<ChungNhanStatisticsDto>> countChungNhanOfNhanVien();
 }

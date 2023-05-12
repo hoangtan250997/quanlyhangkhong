@@ -47,5 +47,10 @@ private final NhanVienService nhanVienService;
         return ResponseEntity.ok(nhanVienService.countChungNhanOfNhanVienJPQL());
     }
 
+    @Override
+    public ResponseEntity<List<ChungNhanStatisticsDto>> countChungNhanOfNhanVien() {
+        return ResponseEntity.ok(nhanVienService.countChungNhanOfNhanVien());
+    }
+
 
 }
